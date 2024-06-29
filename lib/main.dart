@@ -1,5 +1,4 @@
 import 'package:daily_example/core/item.dart';
-import 'package:daily_example/timer_center/page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,9 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      routes: <String, WidgetBuilder>{
-        Path.timerPage: (context) => const TimerCenterPage(),
-      },
+      routes: Path.routes,
       home: const MyHomePage(title: 'Flutter Daily Examples'),
     );
   }
@@ -41,13 +38,18 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    list.add(
+    list.addAll([
       Item(
         title: "定时管理中心",
         detailText: "基于任务插拔式开启和关闭定时，归类相同频率的定时任务，减少定时开销",
         path: Path.timerPage,
       ),
-    );
+      Item(
+        title: "仿UITableView",
+        detailText: "构建列表以及滚动位置",
+        path: Path.tablePage,
+      ),
+    ]);
   }
 
   @override
